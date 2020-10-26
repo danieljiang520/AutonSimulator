@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"/home/richfred77/Documents/Unreal Projects/MroverSim/.kdev4": true,
+		"/home/richfred77/Documents/Unreal Projects/MroverSim/.vscode": true,
+		"/home/richfred77/Documents/Unreal Projects/MroverSim/Content": true,
+		"/home/richfred77/Documents/Unreal Projects/MroverSim/DerivedDataCache": true,
+		"/home/richfred77/Documents/Unreal Projects/MroverSim/Intermediate": true,
+		"/home/richfred77/Documents/Unreal Projects/MroverSim/Saved": true
+	}
+}

@@ -1,0 +1,1985 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "MroverSim Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Mac Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Mac Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Mac Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Mac",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim IOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim IOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim IOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim IOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim IOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim IOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"IOS",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Linux Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Linux DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Linux Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Linux Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim Linux Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim Linux Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"Linux",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim LinuxAArch64 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim LinuxAArch64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim LinuxAArch64 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim LinuxAArch64 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim LinuxAArch64 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim LinuxAArch64 Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"LinuxAArch64",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim TVOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim TVOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim TVOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim TVOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim TVOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim TVOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"TVOS",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim XXX Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim XXX DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim XXX Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim XXX Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Shipping",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSim XXX Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSim XXX Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSim",
+				"XXX",
+				"Test",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSimEditor Linux Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSimEditor Linux DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSimEditor Linux Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Linux Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Linux",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSimEditor Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"Debug",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSimEditor Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"DebugGame",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MroverSimEditor Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		},
+		{
+			"label": "MroverSimEditor Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"MroverSimEditor",
+				"Mac",
+				"Development",
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/richfred77/UnrealEngine"
+			}
+		}
+	]
+}

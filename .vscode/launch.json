@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "MroverSim (Debug)",
+			"request": "launch",
+			"preLaunchTask": "MroverSim Linux Debug Build",
+			"program": "/home/richfred77/Documents/Unreal Projects/MroverSim/Binaries/Linux/MroverSim-Linux-Debug",
+			"args": [
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSim (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "MroverSim Linux DebugGame Build",
+			"program": "/home/richfred77/Documents/Unreal Projects/MroverSim/Binaries/Linux/MroverSim-Linux-DebugGame",
+			"args": [
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSim (Development)",
+			"request": "launch",
+			"preLaunchTask": "MroverSim Linux Development Build",
+			"program": "/home/richfred77/Documents/Unreal Projects/MroverSim/Binaries/Linux/MroverSim",
+			"args": [
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSim (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "MroverSim Linux Shipping Build",
+			"program": "/home/richfred77/Documents/Unreal Projects/MroverSim/Binaries/Linux/MroverSim-Linux-Shipping",
+			"args": [
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSim (Test)",
+			"request": "launch",
+			"preLaunchTask": "MroverSim Linux Test Build",
+			"program": "/home/richfred77/Documents/Unreal Projects/MroverSim/Binaries/Linux/MroverSim-Linux-Test",
+			"args": [
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSimEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "MroverSimEditor Linux Debug Build",
+			"program": "/home/richfred77/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-Debug",
+			"args": [
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject"
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSimEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "MroverSimEditor Linux DebugGame Build",
+			"program": "/home/richfred77/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-DebugGame",
+			"args": [
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject"
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "MroverSimEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "MroverSimEditor Linux Development Build",
+			"program": "/home/richfred77/UnrealEngine/Engine/Binaries/Linux/UE4Editor",
+			"args": [
+				"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject"
+			],
+			"cwd": "/home/richfred77/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/home/richfred77/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"/home/richfred77/Documents/Unreal Projects/MroverSim/MroverSim.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/home/richfred77/UnrealEngine"
+		}
+	]
+}
