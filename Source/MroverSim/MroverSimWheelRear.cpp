@@ -5,7 +5,7 @@
 UMroverSimWheelRear::UMroverSimWheelRear()
 {
 	ShapeRadius = 35.f;
-	ShapeWidth = 10.0f;
+	ShapeWidth = 35.0f;
 	bAffectedByHandbrake = true;
 	SteerAngle = 0.f;
 }
