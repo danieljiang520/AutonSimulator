@@ -142,6 +142,9 @@ void AMroverSimPawn::Tick(float Delta)
 	// Update the strings used in the hud (incar and onscreen)
 	UpdateHUDStrings();
 
+	// Update Rover Position
+	UpdateRoverPosition();
+
 	bool bHMDActive = false;
 #if HMD_MODULE_INCLUDED
 	if ((GEngine->XRSystem.IsValid() == true) && ((GEngine->XRSystem->IsHeadTrackingAllowed() == true) || (GEngine->IsStereoscopic3D() == true)))
@@ -166,11 +169,91 @@ void AMroverSimPawn::BeginPlay()
 	Super::BeginPlay();
 }
 
+AMroverSimPawn::Coordinate AMroverSimPawn::ConvertCoordinate(const float &position, const std::string &choice){
+	AMroverSimPawn::Coordinate temp;
+
+	double temp_minutes = static_cast<double>(position) * CM_MINUTE_SF;
+
+	if(choice == "latitude")
+		temp_minutes = URC_LATITUDE_MINUTE + temp_minutes;
+	else
+		temp_minutes = URC_LONGITUDE_MINUTE + temp_minutes;
+	
+	temp.degree = trunc(temp_minutes / 60);
+
+	temp.minute = (temp_minutes - temp.degree*60);
+
+	return temp;
+}
+
+double AMroverSimPawn::ConvertYaw(const float &yaw){
+	if(yaw < 0){
+		return 360 + static_cast<double>(yaw);
+	} else {
+		return yaw;
+	}
+}
+
+void AMroverSimPawn::UpdateRoverPosition(){
+	/*
+	FVector rover_location = GetActorLocation();
+	FRotator rover_rotation = GetActorRotation();
+	
+	
+	float rover_latitude = URC_LATITUDE - rover_location.Y * CM_DEGREE_SF;
+	float rover_longitude = URC_LONGITUDE + rover_location.X * CM_DEGREE_SF;
+	float rover_heading = rover_rotation.Yaw;
+	*/
+
+	rover_position.latitude = AMroverSimPawn::ConvertCoordinate(GetActorLocation().X,"latitude");
+	rover_position.longitude = AMroverSimPawn::ConvertCoordinate(GetActorLocation().Y,"longitude");
+	rover_position.heading = AMroverSimPawn::ConvertYaw(GetActorRotation().Yaw);
+}
+
 void AMroverSimPawn::UpdateHUDStrings()
 {
 	float KPH = FMath::Abs(GetVehicleMovement()->GetForwardSpeed()) * 0.036f;
 	int32 KPH_int = FMath::FloorToInt(KPH);
 
+	double RoundedLatitudeMinutes = (double)((int)(rover_position.latitude.minute*100))/100;
+	double RoundedLongitudeMinutes = (double)((int)(rover_position.longitude.minute*100))/100;
+	double RoundedHeading = (double)((int)(rover_position.heading*100))/100;
+
+	std::string ConvertedLatitudeMinutes = std::to_string(RoundedLatitudeMinutes);
+	std::string ConvertedLongitudeMinutes = std::to_string(RoundedLongitudeMinutes);
+	std::string ConvertedHeading = std::to_string(RoundedHeading);
+
+	for(int i = 0; i < 4; ++i){
+		ConvertedLatitudeMinutes.pop_back();
+		ConvertedLongitudeMinutes.pop_back();
+		ConvertedHeading.pop_back();
+	}
+
+	std::string LatitudeOdeometryLine = std::to_string(rover_position.latitude.degree) + DEGREE_SYMBOL + 
+			ConvertedLatitudeMinutes + MINUTE_SYMBOL;
+
+	std::string LongitudeOdeometryLine = std::to_string(rover_position.longitude.degree) + DEGREE_SYMBOL + 
+			ConvertedLongitudeMinutes + MINUTE_SYMBOL;
+
+	std::string HeadingOdeometryLine = ConvertedHeading + DEGREE_SYMBOL;
+
+	/*
+	FText LatitudeOdeometryLine[4] = {FText::AsNumber(rover_position.latitude.degree), FText::FromString(DEGREE_SYMBOL), 
+			FText::AsNumber(rover_position.latitude.minute), FText::FromString(MINUTE_SYMBOL)};
+	
+	FText LongitudeOdeometryLine[4] = {FText::AsNumber(rover_position.longitude.degree), FText::FromString(DEGREE_SYMBOL), 
+			FText::AsNumber(rover_position.longitude.minute), FText::FromString(MINUTE_SYMBOL)};
+
+	FText latitude = FText::Join(LatitudeOdeometryLine);
+	FText longitude = FText::Join(LongitudeOdeometryLine);
+
+	
+	FText latitude = FText::AsNumber(rover_position.latitude.degree) + FText(DEGREE_SYMBOL) + 
+			FText::AsNumber(rover_position.latitude.minute) + FText(MINUTE_SYMBOL;
+	
+	FText longitude = FText::AsNumber(rover_position.longitude.degree) + FText(DEGREE_SYMBOL) + 
+			FText::AsNumber(rover_position.longitude.minute) + FText(MINUTE_SYMBOL);
+	*/
 	// Using FText because this is display text that should be localizable
 	SpeedDisplayString = FText::Format(LOCTEXT("SpeedFormat", "{0} km/h"), FText::AsNumber(KPH_int));
 
@@ -182,11 +265,11 @@ void AMroverSimPawn::UpdateHUDStrings()
 
 	JoystickRotationalDisplayString = FText::Format(LOCTEXT("JoystickRotationalFormat", "JoystickRotational: {0}"), FText::AsNumber(0));
 
-	OdometryLatitudeDisplayString = FText::Format(LOCTEXT("OdometryLatitudeFormat", "OdometryLatitude: {0}"), FText::AsNumber(0));
+	OdometryLatitudeDisplayString = FText::Format(LOCTEXT("OdometryLatitudeFormat", "OdometryLatitude: {0}"), FText::FromString(LatitudeOdeometryLine.c_str()));
 
-	OdometryLongitudeDisplayString = FText::Format(LOCTEXT("OdometryLongitudeFormat", "OdometryLongitude: {0}"), FText::AsNumber(0));
+	OdometryLongitudeDisplayString = FText::Format(LOCTEXT("OdometryLongitudeFormat", "OdometryLongitude: {0}"), FText::FromString(LongitudeOdeometryLine.c_str()));
 
-	OdometryHeadingDisplayString = FText::Format(LOCTEXT("OdometryHeadingFormat", "OdometryHeading: {0}"), FText::AsNumber(0));
+	OdometryHeadingDisplayString = FText::Format(LOCTEXT("OdometryHeadingFormat", "OdometryHeading: {0}"), FText::FromString(HeadingOdeometryLine.c_str()));
 
 	ObstacleDistanceDisplayString = FText::Format(LOCTEXT("ObstacleDistanceFormat", "ObstacleDistance: {0}"), FText::AsNumber(0));
 

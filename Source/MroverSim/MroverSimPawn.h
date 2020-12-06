@@ -7,6 +7,8 @@
 #include "SimpleWheeledVehicleMovementComponent.h"
 #include "MroverSimPawn.generated.h"
 
+
+
 class UCameraComponent;
 class USpringArmComponent;
 class UTextRenderComponent;
@@ -218,10 +220,24 @@ protected:
 public:
 
 	// Wheel Numbering
-	const static int FRONT_LEFT_WHEEL = 0;
-	const static int FRONT_RIGHT_WHEEL = 1;
-	const static int BACK_LEFT_WHEEL = 2;
-	const static int BACK_RIGHT_WHEEL = 3;
+	static constexpr const int FRONT_LEFT_WHEEL = 0;
+	static constexpr const int FRONT_RIGHT_WHEEL = 1;
+	static constexpr const int BACK_LEFT_WHEEL = 2;
+	static constexpr const int BACK_RIGHT_WHEEL = 3;
+
+	// Conversion for Latutude and Longitude and Heading
+	static constexpr const double CM_DEGREE_SF = 1 /(double) 11120000;
+	static constexpr const double CM_MINUTE_SF = 1 /(double) 185300;
+	static constexpr const double HEADING_CORRECTION = 90.0;
+
+	// GPS Location of URC
+	static constexpr const double URC_LATITUDE_MINUTE = 2304.39;
+	static constexpr const double URC_LONGITUDE_MINUTE = -6647.52;
+
+	// Degree and Minute Symbolism
+	std::string DEGREE_SYMBOL= " DEG ";
+	std::string MINUTE_SYMBOL = " MIN ";
+
 
 	/** Handle moving forward */
 	void MoveForward();
@@ -241,18 +257,44 @@ public:
 	/** Update the physics material used by the vehicle mesh */
 	void UpdatePhysicsMaterial();
 
+
+
 	static const FName LookUpBinding;
 	static const FName LookRightBinding;
 
 private:
 
-	/** Update the gear and speed strings */
+	struct Coordinate {
+		int degree;
+		double minute;
+	};
+
+	struct RoverPosition {
+		Coordinate latitude;
+		Coordinate longitude;
+		double heading;
+	};
+
+	/** Update Hud */
 	void UpdateHUDStrings();
+
+	/** Updates RoverPosition with ideal formats */
+	void UpdateRoverPosition();
+
+	/** Changes UE Axis Position to GPS Coord */
+	Coordinate ConvertCoordinate(const float &position, const std::string &choice);
+
+	/** Corrects UE Yaw */
+	double ConvertYaw(const float &yaw);
+	
+	
 
 	/* Are we on a 'slippery' surface */
 	bool bIsLowFriction;
 
 	USimpleWheeledVehicleMovementComponent* VehicleSimple;
+
+	RoverPosition rover_position;
 
 
 public:
@@ -260,4 +302,6 @@ public:
 	FORCEINLINE USpringArmComponent* GetSpringArm() const { return SpringArm; }
 	/** Returns Camera subobject **/
 	FORCEINLINE UCameraComponent* GetCamera() const { return Camera; }
+
+
 };

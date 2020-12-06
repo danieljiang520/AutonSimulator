@@ -56,7 +56,7 @@ void AMroverSimHud::DrawHUD()
 			Canvas->DrawItem(NavStateTextItem);
 
 			// Waypoints
-			FCanvasTextItem WaypointTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 470.f), Vehicle->WaypointsDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem WaypointTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 470.f), Vehicle->WaypointsDisplayString, HUDFont, FLinearColor::White);
 			WaypointTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(WaypointTextItem);
 
@@ -86,17 +86,17 @@ void AMroverSimHud::DrawHUD()
 			Canvas->DrawItem(OdometryHeadingTextItem);
 
 			// ObstacleDistance
-			FCanvasTextItem ObstacleDistanceTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 550.f), Vehicle->ObstacleDistanceDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem ObstacleDistanceTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 550.f), Vehicle->ObstacleDistanceDisplayString, HUDFont, FLinearColor::White);
 			ObstacleDistanceTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(ObstacleDistanceTextItem);
 
 			// ObstacleBearing
-			FCanvasTextItem ObstacleBearingTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 570.f), Vehicle->ObstacleBearingDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem ObstacleBearingTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 570.f), Vehicle->ObstacleBearingDisplayString, HUDFont, FLinearColor::White);
 			ObstacleBearingTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(ObstacleBearingTextItem);
 
 			// RadioStrength
-			FCanvasTextItem RadioStrengthTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 510.f), Vehicle->RadioStrengthDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem RadioStrengthTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 510.f), Vehicle->RadioStrengthDisplayString, HUDFont, FLinearColor::White);
 			RadioStrengthTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(RadioStrengthTextItem);
 
@@ -116,17 +116,17 @@ void AMroverSimHud::DrawHUD()
 			Canvas->DrawItem(TargetOneIDTextItem);
 
 			// TargetTwoDistance
-			FCanvasTextItem TargetTwoDistanceTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 610.f), Vehicle->TargetTwoDistanceDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem TargetTwoDistanceTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 610.f), Vehicle->TargetTwoDistanceDisplayString, HUDFont, FLinearColor::White);
 			TargetTwoDistanceTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(TargetTwoDistanceTextItem);
 
 			// TargetTwoBearing
-			FCanvasTextItem TargetTwoBearingTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 630.f), Vehicle->TargetTwoBearingDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem TargetTwoBearingTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 630.f), Vehicle->TargetTwoBearingDisplayString, HUDFont, FLinearColor::White);
 			TargetTwoBearingTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(TargetTwoBearingTextItem);
 
 			// TargetTwoID
-			FCanvasTextItem TargetTwoIDTextItem(FVector2D(HUDXRatio * 1000.f, HUDYRatio * 650.f), Vehicle->TargetTwoIDDisplayString, HUDFont, FLinearColor::White);
+			FCanvasTextItem TargetTwoIDTextItem(FVector2D(HUDXRatio * 1100.f, HUDYRatio * 650.f), Vehicle->TargetTwoIDDisplayString, HUDFont, FLinearColor::White);
 			TargetTwoIDTextItem.Scale = ScaleVec;
 			Canvas->DrawItem(TargetTwoIDTextItem);
 
