@@ -17,13 +17,6 @@ void FLCM_PluginModule::StartupModule()
 	// Add on the relative location of the third party dll and load it
 	FString LibraryPath = "/usr/local/lib/liblcm.so";
 
-// Not currently supporting platforms other than ubuntu-18.04	
-// #if PLATFORM_WINDOWS
-// 	LibraryPath = FPaths::Combine(*BaseDir, TEXT("Binaries/ThirdParty/LCM_PluginLibrary/Win64/ExampleLibrary.dll"));
-// #elif PLATFORM_MAC
-//     LibraryPath = FPaths::Combine(*BaseDir, TEXT("Source/ThirdParty/LCM_PluginLibrary/Mac/Release/libExampleLibrary.dylib"));
-// #endif // PLATFORM_WINDOWS
-
 	LCMLibraryHandle = !LibraryPath.IsEmpty() ? FPlatformProcess::GetDllHandle(*LibraryPath) : nullptr;
 
 	if (LCMLibraryHandle)

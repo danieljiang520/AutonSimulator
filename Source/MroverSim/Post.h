@@ -4,6 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+
+#include "LCM_Handler.h"
+
+THIRD_PARTY_INCLUDES_START
+#include <lcm/lcm-cpp.hpp>
+#include <lcm/rover_msgs/GPS.hpp>
+THIRD_PARTY_INCLUDES_END
+
+// Must always be last include
 #include "Post.generated.h"
 
 UCLASS()
@@ -23,6 +32,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
-	
+private:
+	lcm::LCM lcm;
+	LCM_Handler handlerObject;
 };

@@ -35,7 +35,7 @@ Now strip the example library from your plugin, and add:
 
 `PublicIncludePaths.AddRange(
 			new string[] {
-				// ... add public include paths required here ...
+				// ... add public include paths to header files required here ...
 			}
 			);
 `
