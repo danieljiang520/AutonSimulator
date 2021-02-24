@@ -27,6 +27,7 @@
 
 const FName AMroverSimPawn::LookUpBinding("LookUp");
 const FName AMroverSimPawn::LookRightBinding("LookRight");
+const float speedLim = 1.6;
 
 #define LOCTEXT_NAMESPACE "VehiclePawn"
 
@@ -97,34 +98,37 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 
 void AMroverSimPawn::MoveForward()
 {
-	VehicleSimple->SetDriveTorque(1000,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(1000,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(1000,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(1000,BACK_RIGHT_WHEEL);
+	if(VehicleSimple->GetVehicleMovement()->GetForwardSpeed()<=speedLim){
+		VehicleSimple->SetDriveTorque(200,FRONT_LEFT_WHEEL);
+		VehicleSimple->SetDriveTorque(200,FRONT_RIGHT_WHEEL);
+		VehicleSimple->SetDriveTorque(200,BACK_LEFT_WHEEL);
+		VehicleSimple->SetDriveTorque(200,BACK_RIGHT_WHEEL);
+	}
+	
 }
 
 void AMroverSimPawn::MoveBackward()
 {
-	VehicleSimple->SetDriveTorque(-1000,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-1000,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(-1000,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-1000,BACK_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,FRONT_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,BACK_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,BACK_RIGHT_WHEEL);
 }
 
 void AMroverSimPawn::TurnRight()
 {
-	VehicleSimple->SetDriveTorque(1000,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-1000,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(1000,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-1000,BACK_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(200,FRONT_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(200,BACK_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,BACK_RIGHT_WHEEL);
 }
 
 void AMroverSimPawn::TurnLeft()
 {
-	VehicleSimple->SetDriveTorque(-1000,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(1000,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(-1000,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(1000,BACK_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,FRONT_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(200,FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(-200,BACK_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(200,BACK_RIGHT_WHEEL);
 }
 
 void AMroverSimPawn::ResetWheelTorque()
