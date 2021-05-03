@@ -223,20 +223,18 @@ public:
 	const static int BACK_LEFT_WHEEL = 2;
 	const static int BACK_RIGHT_WHEEL = 3;
 
-	/** Handle moving forward */
-	void MoveForward();
+	void moveChasis(float leftAxis, float rightAxis);
 
-	/** Handle moving backward */
-	void MoveBackward();
+	/** Handle moving forward */
+	void MoveForward(float Val);
 
 	/** Handle turning right */
-	void TurnRight();
+	void MoveRight(float Val);
 
-	/** Handle turning left */
-	void TurnLeft();
-
-	/** Handle when a button is released */
-	void ResetWheelTorque();
+	/** Handle handbrake pressed */
+	void OnHandbrakePressed();
+	/** Handle handbrake released */
+	void OnHandbrakeReleased();
 
 	/** Update the physics material used by the vehicle mesh */
 	void UpdatePhysicsMaterial();
@@ -254,10 +252,16 @@ private:
 
 	USimpleWheeledVehicleMovementComponent* VehicleSimple;
 
+	float leftControllerAxis;
+	float rightControllerAxis;
+
 
 public:
 	/** Returns SpringArm subobject **/
 	FORCEINLINE USpringArmComponent* GetSpringArm() const { return SpringArm; }
 	/** Returns Camera subobject **/
 	FORCEINLINE UCameraComponent* GetCamera() const { return Camera; }
+
+	/** Returns InCarSpeed subobject **/
+	FORCEINLINE UTextRenderComponent* GetInCarSpeed() const { return InCarSpeed; }
 };
