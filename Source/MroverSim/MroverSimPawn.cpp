@@ -84,60 +84,66 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 
 	// set up gameplay key bindings
 	check(PlayerInputComponent);
-
-	PlayerInputComponent->BindAction("MoveForward", IE_Pressed, this, &AMroverSimPawn::MoveForward);
-	PlayerInputComponent->BindAction("MoveForward", IE_Released, this, &AMroverSimPawn::ResetWheelTorque);
-	PlayerInputComponent->BindAction("MoveBackward", IE_Pressed, this, &AMroverSimPawn::MoveBackward);
-	PlayerInputComponent->BindAction("MoveBackward", IE_Released, this, &AMroverSimPawn::ResetWheelTorque);
-	PlayerInputComponent->BindAction("TurnRight", IE_Pressed, this, &AMroverSimPawn::TurnRight);
-	PlayerInputComponent->BindAction("TurnRight", IE_Released, this, &AMroverSimPawn::ResetWheelTorque);
-	PlayerInputComponent->BindAction("TurnLeft", IE_Pressed, this, &AMroverSimPawn::TurnLeft);
-	PlayerInputComponent->BindAction("TurnLeft", IE_Released, this, &AMroverSimPawn::ResetWheelTorque);
+	PlayerInputComponent->BindAxis("MoveForward", this, &AMroverSimPawn::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AMroverSimPawn::MoveRight);
+	PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &AMroverSimPawn::OnHandbrakePressed);
+	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &AMroverSimPawn::OnHandbrakeReleased);
 }
 
-void AMroverSimPawn::MoveForward()
+void AMroverSimPawn::MoveForward(float Val)
 {
-	VehicleSimple->SetDriveTorque(600,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(600,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(600,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(600,BACK_RIGHT_WHEEL);
+	leftControllerAxis = Val;
 }
 
-void AMroverSimPawn::MoveBackward()
+void AMroverSimPawn::MoveRight(float Val)
 {
-	VehicleSimple->SetDriveTorque(-600,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-600,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(-600,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-600,BACK_RIGHT_WHEEL);
+	rightControllerAxis = Val;
 }
 
-void AMroverSimPawn::TurnRight()
+void AMroverSimPawn::OnHandbrakePressed()
 {
-	VehicleSimple->SetDriveTorque(600,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-600,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(600,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(-600,BACK_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(300, FRONT_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(300, FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(300, BACK_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(300, BACK_RIGHT_WHEEL);
 }
 
-void AMroverSimPawn::TurnLeft()
+void AMroverSimPawn::OnHandbrakeReleased()
 {
-	VehicleSimple->SetDriveTorque(-600,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(600,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(-600,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(600,BACK_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(0, FRONT_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(0, FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(0, BACK_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(0, BACK_RIGHT_WHEEL);
 }
 
-void AMroverSimPawn::ResetWheelTorque()
-{
-	VehicleSimple->SetDriveTorque(0,FRONT_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(0,FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetDriveTorque(0,BACK_LEFT_WHEEL);
-	VehicleSimple->SetDriveTorque(0,BACK_RIGHT_WHEEL);
+void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
+	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f; //velocity in KPH
+	float torque = 200;
+	if(-5.0 < KPH && KPH < 5.0){ //within speed limit
+		torque = 200;
+	}else if (leftAxis * KPH < 0.0){ //extra torque for revering when falling downhill 
+		torque = 700;
+	}else{ //exceeds speed limit
+		leftAxis = 0;
+	}
+	
+	float leftVelocity = leftAxis + rightAxis;
+	float rightVelocity = leftAxis - rightAxis;
+
+	VehicleSimple->SetDriveTorque(torque * leftVelocity,FRONT_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(torque * rightVelocity,FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetDriveTorque(torque * leftVelocity,BACK_LEFT_WHEEL);
+	VehicleSimple->SetDriveTorque(torque * rightVelocity,BACK_RIGHT_WHEEL);
+
+	FString TheFloatStr = FString::SanitizeFloat(rightAxis);
+	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Red, *TheFloatStr );
 }
 
 void AMroverSimPawn::Tick(float Delta)
 {
 	Super::Tick(Delta);
+
+	moveChasis(leftControllerAxis, rightControllerAxis);
 	
 	// Update the strings used in the hud (incar and onscreen)
 	UpdateHUDStrings();
@@ -168,7 +174,7 @@ void AMroverSimPawn::BeginPlay()
 
 void AMroverSimPawn::UpdateHUDStrings()
 {
-	float KPH = FMath::Abs(GetVehicleMovement()->GetForwardSpeed()) * 0.036f;
+	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f;
 	int32 KPH_int = FMath::FloorToInt(KPH);
 
 	// Using FText because this is display text that should be localizable
