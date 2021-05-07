@@ -29,7 +29,7 @@ If you are still experiencing issues then when you find a solution please docume
 8. Double check if there are files in the AutonSimulator/lcm folder
 9. Now go back to Epic Games Launcher and launch unreal engine 4.26.0
 10. Click more at the bottom of the window. Find and open the MroverSim.uproject file. 
-11. If a window saying the project is built with another version of unreal engine, click make a copy
+11. If a window saying the project is built with another version of unreal engine, click skip conversion
 12. Now you should be able to see the game but without the rover
 13. Go to https://drive.google.com/drive/folders/1kQf7xffSPj5jT0UwyLqin40EbcV6uL1i 
 14. Download Complete_Rover.uasset
