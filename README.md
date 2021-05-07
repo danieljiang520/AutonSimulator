@@ -18,7 +18,7 @@ $ sudo cp /usr/local/lib/liblcm.so.1 /usr/lib
 
 If you are still experiencing issues then when you find a solution please document them here.
 
-## Mac Set Up
+## Mac Set Up (May 6, 2021)
 1. Go to https://www.epicgames.com/store/en-US/download and install Epic Games Launcher
 2. Open Epic Games Launcher
 3. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer (this version might be at the end of the selection. It is very important that you install 4.26+ on mac)
