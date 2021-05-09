@@ -8,5 +8,5 @@ UMroverSimWheelRear::UMroverSimWheelRear()
 	ShapeWidth = 35.0f;
 	bAffectedByHandbrake = true;
 	SteerAngle = 0.f;
-	LatStiffValue = 0.8;
+	LatStiffValue = 1.8;
 }

@@ -27,6 +27,7 @@
 
 const FName AMroverSimPawn::LookUpBinding("LookUp");
 const FName AMroverSimPawn::LookRightBinding("LookRight");
+const float maxSpeed = 1.6; //KPH
 
 #define LOCTEXT_NAMESPACE "VehiclePawn"
 
@@ -102,10 +103,10 @@ void AMroverSimPawn::MoveRight(float Val)
 
 void AMroverSimPawn::OnHandbrakePressed()
 {
-	VehicleSimple->SetBrakeTorque(300, FRONT_LEFT_WHEEL);
-	VehicleSimple->SetBrakeTorque(300, FRONT_RIGHT_WHEEL);
-	VehicleSimple->SetBrakeTorque(300, BACK_LEFT_WHEEL);
-	VehicleSimple->SetBrakeTorque(300, BACK_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, FRONT_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, BACK_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, BACK_RIGHT_WHEEL);
 }
 
 void AMroverSimPawn::OnHandbrakeReleased()
@@ -119,7 +120,7 @@ void AMroverSimPawn::OnHandbrakeReleased()
 void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
 	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f; //velocity in KPH
 	float torque = 200;
-	if(-5.0 < KPH && KPH < 5.0){ //within speed limit
+	if(-1 * maxSpeed < KPH && KPH < maxSpeed){ //within speed limit
 		torque = 200;
 	}else if (leftAxis * KPH < 0.0){ //extra torque for revering when falling downhill 
 		torque = 700;
@@ -178,7 +179,7 @@ void AMroverSimPawn::UpdateHUDStrings()
 	int32 KPH_int = FMath::FloorToInt(KPH);
 
 	// Using FText because this is display text that should be localizable
-	SpeedDisplayString = FText::Format(LOCTEXT("SpeedFormat", "{0} km/h"), FText::AsNumber(KPH_int));
+	SpeedDisplayString = FText::Format(LOCTEXT("SpeedFormat", "{0} km/h"), FText::AsNumber(KPH));
 
 	NavStateStatusDisplayString = FText::Format(LOCTEXT("NavStateFormat", "Navigation State: {0}"), FText::AsNumber(0));
 

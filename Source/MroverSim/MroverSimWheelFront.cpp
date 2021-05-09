@@ -8,5 +8,5 @@ UMroverSimWheelFront::UMroverSimWheelFront()
 	ShapeWidth = 35.0f;
 	bAffectedByHandbrake = false;
 	SteerAngle = 50.f;
-	LatStiffValue = 0.8;
+	LatStiffValue = 1.8;
 }
