@@ -41,3 +41,10 @@ If you are still experiencing issues then when you find a solution please docume
 20. Download Complete_Rover.uasset
 21. Open finder and copy that file to AutonSimulator 4.26/Content/Vehicle/Rover (Note: you must copy the asset file to the newly created AutonSimulator 4.26 folder)
 22. Click play in Unreal Engine. Use wasd to move the rover. 
+
+When you use github and the terminal is displaying:
+"remote: Permission to username1/repo.git denied to username2. fatal: unable to access 'https://github.com/username1/repo.git/': The requested URL returned error: 403", 
+
+where username2 = another github account and username1 is the account you want to use to push/pull, you need to change github accounts. Use the following link to help you: 
+ https://gist.github.com/richchurcher 531b0452d7d5ea983daa314d0876f60a
+
