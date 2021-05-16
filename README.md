@@ -21,7 +21,7 @@ If you are still experiencing issues then when you find a solution please docume
 ## Mac Set Up (May 6, 2021)
 1. Go to https://www.epicgames.com/store/en-US/download and install Epic Games Launcher
 2. Open Epic Games Launcher
-3. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer (this version might be at the end of the selection. It is very important that you install 4.26+ on mac)
+3. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer if your operating system is Big Sur or newer (this version might be at the end of the selection. It is very important that you install 4.26+ on mac). Otherwise, install 4.25.4.
 4. While you are waiting for unreal engine to install, open terminal and locate a folder where you want to store the mrover files. (E.g. cd Documents)
 5. Clone the Simulator Files: git clone https://github.com/umrover/AutonSimulator.git
 6. After you have set up the AutonSimulator folder, type cd AutonSimulator 
