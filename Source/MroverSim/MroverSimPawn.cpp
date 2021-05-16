@@ -140,11 +140,24 @@ void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
 	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Red, *TheFloatStr );
 }
 
+float AMroverSimPawn::returnHighestSpeed() {
+	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f;
+	//int32 KPH_int = FMath::FloorToInt(KPH); 
+	
+	if (abs(KPH) > highestSpeed) {
+		highestSpeed = KPH; 
+	}
+	return highestSpeed; 
+}
+
 void AMroverSimPawn::Tick(float Delta)
 {
 	Super::Tick(Delta);
 
 	moveChasis(leftControllerAxis, rightControllerAxis);
+
+	//call function to record velocities
+	highestSpeed = returnHighestSpeed(); 
 	
 	// Update the strings used in the hud (incar and onscreen)
 	UpdateHUDStrings();

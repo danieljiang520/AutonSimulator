@@ -255,6 +255,8 @@ private:
 	float leftControllerAxis;
 	float rightControllerAxis;
 
+	float highestSpeed; 
+
 
 public:
 	/** Returns SpringArm subobject **/
