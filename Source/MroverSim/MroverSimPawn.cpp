@@ -190,9 +190,12 @@ void AMroverSimPawn::UpdateHUDStrings()
 {
 	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f;
 	int32 KPH_int = FMath::FloorToInt(KPH);
+	highestSpeed = returnHighestSpeed(); 
 
 	// Using FText because this is display text that should be localizable
 	SpeedDisplayString = FText::Format(LOCTEXT("SpeedFormat", "{0} km/h"), FText::AsNumber(KPH));
+
+	HighestSpeedDisplayString = FText::Format(LOCTEXT("HighestSpeedFormat", "{0} km/h"), FText::AsNumber(highestSpeed));
 
 	NavStateStatusDisplayString = FText::Format(LOCTEXT("NavStateFormat", "Navigation State: {0}"), FText::AsNumber(0));
 
