@@ -49,4 +49,6 @@ When you use github and the terminal is displaying:
 
 where username2 = another github account and username1 is the account you want to use to push/pull, you need to change github accounts. Use the following link to help you: 
  https://gist.github.com/richchurcher 531b0452d7d5ea983daa314d0876f60a
+ 
+Configuring a remote for a fork: https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
 
