@@ -105,8 +105,6 @@ class AMroverSimPawn : public AWheeledVehicle
 	UPROPERTY(Category = Display, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UTextRenderComponent* TargetTwoID;
 
-	/*UPROPERTY(Category = Display, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	UTextRenderComponent* HighestSpeed;*/
 
 	
 public:
@@ -117,10 +115,6 @@ public:
 	/** The current speed as a string eg 10 km/h */
 	UPROPERTY(Category = Display, VisibleDefaultsOnly, BlueprintReadOnly)
 	FText SpeedDisplayString;
-
-	/** The current highest speed as a string eg 10 km/h */
-	UPROPERTY(Category = Display, VisibleDefaultsOnly, BlueprintReadOnly)
-	FText HighestSpeedDisplayString;
 
 	/** The current gear as a string (R,N, 1,2 etc) */
 	UPROPERTY(Category = Display, VisibleDefaultsOnly, BlueprintReadOnly)
@@ -231,8 +225,6 @@ public:
 
 	void moveChasis(float leftAxis, float rightAxis);
 
-	float returnHighestSpeed(); 
-
 	/** Handle moving forward */
 	void MoveForward(float Val);
 
@@ -262,8 +254,6 @@ private:
 
 	float leftControllerAxis;
 	float rightControllerAxis;
-
-	float highestSpeed; 
 
 
 public:
