@@ -2,6 +2,7 @@
 
 #include "MroverSimHud.h"
 #include "MroverSimPawn.h"
+#include "MroverSimPawnAuto.h"
 #include "WheeledVehicle.h"
 #include "RenderResource.h"
 #include "Shader.h"
@@ -41,7 +42,8 @@ void AMroverSimHud::DrawHUD()
 	{
 		// Get our vehicle so we can check if we are in car. If we are we don't want onscreen HUD
 		AMroverSimPawn* Vehicle = Cast<AMroverSimPawn>(GetOwningPawn());
-		if ((Vehicle != nullptr) && (Vehicle->bInCarCameraActive == false))
+		AMroverSimPawnAuto* VehicleAuto = Cast<AMroverSimPawnAuto>(GetOwningPawn());
+		if ((Vehicle != nullptr && VehicleAuto != nullptr) && (Vehicle->bInCarCameraActive == false))
 		{
 			FVector2D ScaleVec(HUDYRatio * 0.8f, HUDYRatio * 0.8f);
 
