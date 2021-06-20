@@ -126,12 +126,25 @@ void AMroverSimPawn::changeCameras() {
 
 	// camera views: 2 => "c" to change to next, "c" to change back 
 	// currentCamera default to 1 (ie. first camera view), change would change it to 2
-	if (currentCamera == 1) {
+	float SmoothBlendTime = 0.75f;
+	if (currentCamera == 1 && InternalCamera) {
+		rover->SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
 		currentCamera = 2; 
 	}
-	if (currentCamera == 2) {
+	if (currentCamera == 2 && Camera) {
+		rover->SetCameraViewWithBlend(Camera); 
 		currentCamera = 1; 
 	}
+
+	// Change cameras 
+	/*float SmoothBlendTime = 0.75f; 
+	APlayerController* rover = UGamePlayStatics::GetPlayerController(this, 0); 
+	if (InternalCamera && rover->GetViewTarget() == GetCamera()) {
+		rover->SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
+	}
+	else if (GetCamera()) {
+		rover->SetCameraViewWithBlend(Camera); 
+	}*/
 }
 
 void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
@@ -156,16 +169,6 @@ void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
 	FString TheFloatStr = FString::SanitizeFloat(rightAxis);
 	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Red, *TheFloatStr );
 
-	// Change cameras 
-	float SmoothBlendTime = 0.75f; 
-	//APlayerController* rover = UGamePlayStatics::GetPlayerController(this, 0); 
-	if (InternalCamera && GetViewTarget() == GetCamera()) {
-		SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
-	}
-	else if (getCamera()) {
-		SetCameraViewWithBlend(InternalCamera); 
-	}
-	changeCameras(); 
 }
 
 void AMroverSimPawn::Tick(float Delta)
@@ -194,6 +197,8 @@ void AMroverSimPawn::Tick(float Delta)
 			InternalCamera->SetRelativeRotation(HeadRotation);
 		}
 	}
+	
+	changeCameras(); 
 
 }
 
