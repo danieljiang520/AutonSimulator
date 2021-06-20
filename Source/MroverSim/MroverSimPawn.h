@@ -6,6 +6,7 @@
 #include "WheeledVehicle.h"
 #include "SimpleWheeledVehicleMovementComponent.h"
 #include "MroverSimPawn.generated.h"
+#include "Kisnet/GameplayStatics.h"
 
 class UCameraComponent;
 class USpringArmComponent;
@@ -239,6 +240,8 @@ public:
 	/** Update the physics material used by the vehicle mesh */
 	void UpdatePhysicsMaterial();
 
+	void changeCameras(); 
+
 	static const FName LookUpBinding;
 	static const FName LookRightBinding;
 
@@ -254,6 +257,8 @@ private:
 
 	float leftControllerAxis;
 	float rightControllerAxis;
+
+	int currentCamera = 1; 
 
 
 public:

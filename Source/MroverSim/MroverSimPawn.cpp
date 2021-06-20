@@ -14,6 +14,7 @@
 #include "Components/TextRenderComponent.h"
 #include "Materials/Material.h"
 #include "GameFramework/Controller.h"
+#include "Kisnet/GameplayStatics.h"
 
 #ifndef HMD_MODULE_INCLUDED
 #define HMD_MODULE_INCLUDED 0
@@ -89,6 +90,8 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMroverSimPawn::MoveRight);
 	PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &AMroverSimPawn::OnHandbrakePressed);
 	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &AMroverSimPawn::OnHandbrakeReleased);
+
+	PlayerInputComponent->BindAction("ChangeCameras", IE_Pressed, this, &AMroverSimPawn::changeCameras);
 }
 
 void AMroverSimPawn::MoveForward(float Val)
@@ -117,6 +120,20 @@ void AMroverSimPawn::OnHandbrakeReleased()
 	VehicleSimple->SetBrakeTorque(0, BACK_RIGHT_WHEEL);
 }
 
+void AMroverSimPawn::changeCameras() {
+	// if press "c", this function will be called
+	// to change variables, do in tick()
+
+	// camera views: 2 => "c" to change to next, "c" to change back 
+	// currentCamera default to 1 (ie. first camera view), change would change it to 2
+	if (currentCamera == 1) {
+		currentCamera = 2; 
+	}
+	if (currentCamera == 2) {
+		currentCamera = 1; 
+	}
+}
+
 void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
 	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f; //velocity in KPH
 	float torque = 200;
@@ -138,6 +155,17 @@ void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
 
 	FString TheFloatStr = FString::SanitizeFloat(rightAxis);
 	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Red, *TheFloatStr );
+
+	// Change cameras 
+	float SmoothBlendTime = 0.75f; 
+	//APlayerController* rover = UGamePlayStatics::GetPlayerController(this, 0); 
+	if (InternalCamera && GetViewTarget() == GetCamera()) {
+		SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
+	}
+	else if (getCamera()) {
+		SetCameraViewWithBlend(InternalCamera); 
+	}
+	changeCameras(); 
 }
 
 void AMroverSimPawn::Tick(float Delta)
@@ -166,6 +194,7 @@ void AMroverSimPawn::Tick(float Delta)
 			InternalCamera->SetRelativeRotation(HeadRotation);
 		}
 	}
+
 }
 
 void AMroverSimPawn::BeginPlay()
