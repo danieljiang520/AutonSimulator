@@ -223,6 +223,8 @@ public:
 	const static int BACK_LEFT_WHEEL = 2;
 	const static int BACK_RIGHT_WHEEL = 3;
 
+	void AutoMove();
+
 	void moveChasis(float leftAxis, float rightAxis);
 
 	/** Handle moving forward */
@@ -231,14 +233,15 @@ public:
 	/** Handle turning right */
 	void MoveRight(float Val);
 
-	void GoForward(float Val);
-	void GoRight(float Val);
+	void GoForward();
+	void GoRight();
+	//void LineTrace();
 
 	/** Handle handbrake pressed */
 	void Brake();
-	//void OnHandbrakePressed();
+	void OnHandbrakePressed();
 	/** Handle handbrake released */
-	//void OnHandbrakeReleased();
+	void OnHandbrakeReleased();
 
 	/** Update the physics material used by the vehicle mesh */
 	void UpdatePhysicsMaterial();
@@ -258,6 +261,16 @@ private:
 
 	float leftControllerAxis;
 	float rightControllerAxis;
+
+	bool frontHitSomething;
+
+	float testAxis;
+	float testRAxis;
+
+	FVector2D dest;
+	float destAngle;
+	bool isGoForwardCalled;
+	bool isGoRightCalled;
 
 
 public:

@@ -16,6 +16,10 @@
 #include "GameFramework/Controller.h"
 #include "DrawDebugHelpers.h"
 #include "Math/Quat.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "GameFramework/PlayerController.h"
+#include "Math/Vector.h"
+#include <cmath>
 
 #ifndef HMD_MODULE_INCLUDED
 #define HMD_MODULE_INCLUDED 0
@@ -89,71 +93,93 @@ void AMroverSimPawnAuto::SetupPlayerInputComponent(class UInputComponent* Player
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMroverSimPawnAuto::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMroverSimPawnAuto::MoveRight);
-	PlayerInputComponent->BindAxis("GoForward", this, &AMroverSimPawnAuto::GoForward);
-	//PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &AMroverSimPawnAuto::OnHandbrakePressed);
-	//PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &AMroverSimPawnAuto::OnHandbrakeReleased);
+	PlayerInputComponent->BindAction("GoForward", IE_Pressed, this, &AMroverSimPawnAuto::GoForward);
+	PlayerInputComponent->BindAction("GoRight", IE_Pressed, this, &AMroverSimPawnAuto::GoRight);
+	PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &AMroverSimPawnAuto::OnHandbrakePressed);
+	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &AMroverSimPawnAuto::OnHandbrakeReleased);
 }
 
 void AMroverSimPawnAuto::MoveForward(float Val)
 {
-	leftControllerAxis = Val;
+	//leftControllerAxis = Val;
 }
 
 void AMroverSimPawnAuto::MoveRight(float Val)
 {
-	rightControllerAxis = Val;
+	//rightControllerAxis = Val;
 }
 
-void AMroverSimPawnAuto::GoForward(float Val)//Val = -1,0,or 1
+void AMroverSimPawnAuto::AutoMove() 
 {	
-	if (Val == 1){
-		float distance = 10; // test variable
-		//forward if leftAxis 1, backward if -1
-		float forwardAxis;
-		FVector location = GetActorLocation();
-		if(location.X < location.X + distance){
-			forwardAxis = 0.9;
-			moveChasis(forwardAxis,0);
-		}
-		else {
-			forwardAxis = -0.9;
-			moveChasis(forwardAxis,0);
-		}
-		
-		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Left axis: %f"), forwardAxis));
-	}
-	
+	//if no front hit, go forward
+	//else if no right hit, turn right
+	//else if no left hit, turn left
+	//else go back
+//	if(!isFrontHit && !isBackHit) GoForward(1);
+	//if(!isRightHit) GoRight(1);
 }
 
-void AMroverSimPawnAuto::GoRight(float distance)
-{
+
+void AMroverSimPawnAuto::GoForward()//Val = -1,0,or 1
+{	
+	isGoForwardCalled = true;
+	//float distance = 2; // test variable
+	float distance = 1000;
 	//forward if leftAxis 1, backward if -1
-	// float rightAxis;
-	// if(GetActorLocation()< ){
-	// 	rightAxis = 1;
-	// 	moveChasis(rightAxis,0);
-	// }
-	// else {
-	// 	rightAxis = -1;
-	// 	moveChasis(rightAxis,0);
-	// }
+	float forwardAxis = 0.9;
+	FVector2D location(GetActorLocation().X,GetActorLocation().Y);
+	//unit vector in direction actor is facing
+	FVector2D rotVector(GetActorRotation().Vector().X,GetActorRotation().Vector().Y);
+	//if(FVector2D::Dist(location,dest) < 1 || dest == FVector::ZeroVector) 
+	dest = location + rotVector*distance;
+
+	leftControllerAxis = 0.95;
+	rightControllerAxis = 0;
+	testAxis = 0.9;
+	/*if(FVector2D::Distance(location,dest) > 10){
+	//while(GetActorLocation() != dest){	//while(GetActorLocation().X < location.X + distance){
+		leftControllerAxis = 0.95;
+		testAxis = 0.9;
+	}*/
+	//else {AMroverSimPawnAuto::Brake(); testAxis = 0.7;}
+
+
 }
 
-void AMroverSimPawnAuto::Brake()
+//turn right 90 deg
+void AMroverSimPawnAuto::GoRight()
+{	
+	isGoRightCalled = true;
+	rightControllerAxis = 0.8;
+	leftControllerAxis = 0;
+	float angle = 90; //test variable
+	FRotator rot = GetActorRotation();
+	destAngle = rot.Yaw + angle;
+
+}
+
+void AMroverSimPawnAuto::OnHandbrakePressed()
 {
-	VehicleSimple->SetBrakeTorque(1000, FRONT_LEFT_WHEEL);
+	/*VehicleSimple->SetBrakeTorque(1000, FRONT_LEFT_WHEEL);
 	VehicleSimple->SetBrakeTorque(1000, FRONT_RIGHT_WHEEL);
 	VehicleSimple->SetBrakeTorque(1000, BACK_LEFT_WHEEL);
-	VehicleSimple->SetBrakeTorque(1000, BACK_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, BACK_RIGHT_WHEEL);*/
 }
-/*
+
 void AMroverSimPawnAuto::OnHandbrakeReleased()
 {
-	VehicleSimple->SetBrakeTorque(0, FRONT_LEFT_WHEEL);
+	/*VehicleSimple->SetBrakeTorque(0, FRONT_LEFT_WHEEL);
 	VehicleSimple->SetBrakeTorque(0, FRONT_RIGHT_WHEEL);
 	VehicleSimple->SetBrakeTorque(0, BACK_LEFT_WHEEL);
-	VehicleSimple->SetBrakeTorque(0, BACK_RIGHT_WHEEL);
-}*/
+	VehicleSimple->SetBrakeTorque(0, BACK_RIGHT_WHEEL);*/
+}
+void AMroverSimPawnAuto::Brake()
+{
+	/*VehicleSimple->SetBrakeTorque(1000, FRONT_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, FRONT_RIGHT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, BACK_LEFT_WHEEL);
+	VehicleSimple->SetBrakeTorque(1000, BACK_RIGHT_WHEEL);*/
+}
 
 void AMroverSimPawnAuto::moveChasis(float leftAxis, float rightAxis) {
 	float KPH = GetVehicleMovement()->GetForwardSpeed() * 0.036f; //velocity in KPH
@@ -182,10 +208,56 @@ void AMroverSimPawnAuto::moveChasis(float leftAxis, float rightAxis) {
 void AMroverSimPawnAuto::Tick(float Delta)
 {
 	Super::Tick(Delta);
+	if(!isGoForwardCalled && !isGoRightCalled) {
+		VehicleSimple->SetBrakeTorque(1000, FRONT_LEFT_WHEEL);
+		VehicleSimple->SetBrakeTorque(1000, FRONT_RIGHT_WHEEL);
+		VehicleSimple->SetBrakeTorque(1000, BACK_LEFT_WHEEL);
+		VehicleSimple->SetBrakeTorque(1000, BACK_RIGHT_WHEEL);
+	}	
+	else {
+		VehicleSimple->SetBrakeTorque(0, FRONT_LEFT_WHEEL);
+		VehicleSimple->SetBrakeTorque(0, FRONT_RIGHT_WHEEL);
+		VehicleSimple->SetBrakeTorque(0, BACK_LEFT_WHEEL);
+		VehicleSimple->SetBrakeTorque(0, BACK_RIGHT_WHEEL);
+	}
 
 	float forwardSpeed = GetVehicleMovement()->GetForwardSpeed(); //velocity in KPH
+	moveChasis(leftControllerAxis,rightControllerAxis);
 
 	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Velocity: %f"), forwardSpeed));
+
+	float yaw = GetActorRotation().Yaw;
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("yaw: %f"), yaw));
+
+	//location vector with x and y coordinates
+	FVector2D location(GetActorLocation().X,GetActorLocation().Y);
+	FVector2D rotVector(GetActorRotation().Vector().X,GetActorRotation().Vector().Y);
+	float distToDest = FVector2D::Distance(location,dest);
+
+	//float distFrom = sqrt(pow(GetActorLocation().X-dest.X,2)+pow(GetActorLocation().Y-dest.Y,2)+pow(GetActorLocation().Z-dest.Z,2));
+	float distFrom = sqrt(pow(location.X-dest.X,2)+pow(location.Y-dest.Y,2));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Left axis: %f"), testAxis));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Right axis: %f"), testRAxis));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Distance from dest: %f"), distToDest));
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Current X,Y,Z: %f,%f,%f"), (location.X,location.Y,location.Z)));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Current X: %f"), (location.X)));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Dest X: %f"), (dest.X)));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Current Y: %f"), (location.Y)));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Dest Y: %f"), (dest.Y)));
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, FString::Printf(TEXT("Go Forward: %s"), isGoForwardCalled ? TEXT("true") : TEXT("false")));
+
+	//check distance from destination point of GoForward
+	if(isGoForwardCalled && distToDest < 500) {
+		leftControllerAxis = 0;
+		testAxis = 0;
+		isGoForwardCalled = false;
+	}
+	else if(isGoRightCalled && abs(yaw - destAngle) < 5) {
+		testRAxis = 0;
+		rightControllerAxis = 0;
+		isGoRightCalled = false;
+	}
+	
 	
 	// Update the strings used in the hud (incar and onscreen)
 	UpdateHUDStrings();
@@ -207,9 +279,78 @@ void AMroverSimPawnAuto::Tick(float Delta)
 			InternalCamera->SetRelativeRotation(HeadRotation);
 		}
 	}
-	
+	//front line trace
+	FVector Loc;
+	FRotator Rot;
+	FHitResult FrontHit;
+	GetController()->GetPlayerViewPoint(Loc,Rot);
 
-// 	/*TArray is the collection that contains all the HitResults*/
+	FVector Start = Loc;
+	FVector End = (Start + Rot.Vector()) * 1000;
+
+	ECollisionChannel ECC = ECollisionChannel::ECC_WorldStatic;
+	FCollisionQueryParams CollisionParams;
+
+	//prevent line trace from colliding with self
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMroverSimPawnAuto::StaticClass(), FoundActors);
+	for (AActor * actor : FoundActors) CollisionParams.AddIgnoredActor(actor);
+
+	DrawDebugLine(GetWorld(),Start,End,FColor::Green, false, 2.0f);
+	frontHitSomething = GetWorld()->LineTraceSingleByChannel(FrontHit, Start, End, ECC_WorldStatic, CollisionParams);
+
+	if(frontHitSomething) {
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, FString::Printf(TEXT("Front of rover is hitting: %s"), *FrontHit.GetActor()->GetName()));
+		}
+		/*
+	//left line trace
+	FHitResult LeftHit;
+	FVector RightVector = GetActorRightVector();
+	//RightVector.Set(RightVector.X, RightVector.Y, RightVector.Z);
+	FVector LeftVector(-RightVector.X, -RightVector.Y, RightVector.Z);
+	End = Start + Rot.Vector() + LeftVector * 1000.0f;
+	DrawDebugLine(GetWorld(),Start,End,FColor::Cyan, false, 2.0f);
+	bool leftHitSomething = GetWorld()->LineTraceSingleByChannel(LeftHit, Start, End, ECC_WorldStatic, CollisionParams);
+
+	if(leftHitSomething) {
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, FString::Printf(TEXT("Left side of rover is hitting: %s"), *LeftHit.GetActor()->GetName()));
+		}
+
+	//right line trace
+	FHitResult RightHit;
+
+	End =  Start + Rot.Vector() + RightVector * 1000.0f;
+	DrawDebugLine(GetWorld(),Start,End,FColor::Yellow, false, 2.0f);
+	bool rightHitSomething = GetWorld()->LineTraceSingleByChannel(RightHit, Start, End, ECC_WorldStatic, CollisionParams);
+
+	if(rightHitSomething) {
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, FString::Printf(TEXT("Right side of rover is hitting: %s"), *RightHit.GetActor()->GetName()));
+		}
+
+
+	//back line trace
+	FHitResult BackHit;
+	FVector ForwardVector = GetActorForwardVector();
+	FVector BackVector(-ForwardVector.X ,-ForwardVector.Y,ForwardVector.Z+10.0);
+	End =  Start + Rot.Vector() + BackVector * 1000.0f;
+	DrawDebugLine(GetWorld(),Start,End,FColor::Emerald, false, 2.0f);
+	bool backHitSomething = GetWorld()->LineTraceSingleByChannel(BackHit, Start, End, ECC_WorldStatic, CollisionParams);
+
+	if(backHitSomething) {
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, FString::Printf(TEXT("Back side of rover is hitting: %s"), *RightHit.GetActor()->GetName()));
+		} 
+＊/
+	if(!frontHitSomething) GoForward(1);
+	else  GoForward(-1);
+	//else if(!rightHitSomething) GoRight(1);
+	//else if(!leftHitSomething) GoRight(-1);
+	else Brake();　
+	
+	//AutoMove();
+	//if(!isFrontHit && !isBackHit) GoForward(1);
+	//if(!isRightHit) GoRight(1);
+		
+// 	TArray is the collection that contains all the HitResults*/
 //     TArray<FHitResult> HitResults;
 
 //     /*The Start location of the sphere*/
@@ -255,12 +396,14 @@ void AMroverSimPawnAuto::Tick(float Delta)
  
 //     /*Draw the sphere in the viewport*/
 //     DrawDebugSphere(GetWorld(), CenterOfSphere, CollisionShape.GetSphereRadius(), Segments, FColor::Green, true); 
+
 }
 
 void AMroverSimPawnAuto::BeginPlay() 
 { 
 	Super::BeginPlay();  
-
+	isGoForwardCalled = false;
+	isGoRightCalled = false;
 }
 
 void AMroverSimPawnAuto::UpdateHUDStrings()
