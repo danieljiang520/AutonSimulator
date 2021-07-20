@@ -128,11 +128,11 @@ void AMroverSimPawn::changeCameras() {
 	// currentCamera default to 1 (ie. first camera view), change would change it to 2
 	float SmoothBlendTime = 0.75f;
 	if (currentCamera == 1 && InternalCamera) {
-		rover->SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
+		SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
 		currentCamera = 2; 
 	}
 	if (currentCamera == 2 && Camera) {
-		rover->SetCameraViewWithBlend(Camera); 
+		SetCameraViewWithBlend(Camera); 
 		currentCamera = 1; 
 	}
 
