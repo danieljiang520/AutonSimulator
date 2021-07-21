@@ -14,7 +14,7 @@
 #include "Components/TextRenderComponent.h"
 #include "Materials/Material.h"
 #include "GameFramework/Controller.h"
-#include "Kisnet/GameplayStatics.h"
+#include "Kismet/GameplayStatics.h"
 
 #ifndef HMD_MODULE_INCLUDED
 #define HMD_MODULE_INCLUDED 0
@@ -79,6 +79,12 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 	Camera->bUsePawnControlRotation = false;
 	Camera->FieldOfView = 90.f;
+
+	// Create second camera component
+	Camera1 = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera1"));
+	//Camera1->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
+	Camera1->bUsePawnControlRotation = false;
+	Camera1->FieldOfView = 90.f;
 }
 	void AMroverSimPawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -127,12 +133,14 @@ void AMroverSimPawn::changeCameras() {
 	// camera views: 2 => "c" to change to next, "c" to change back 
 	// currentCamera default to 1 (ie. first camera view), change would change it to 2
 	float SmoothBlendTime = 0.75f;
-	if (currentCamera == 1 && InternalCamera) {
-		SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
+	if (currentCamera == 1 && Camera1) {
+		//VehicleSimple->SetCameraViewWithBlend(Camera1, SmoothBlendTime); 
+			// SetCameraViewWithBlend isn't a member of AWheeledVehicle 
+				// --> try: bFindCameraComponentWhenViewTarget???
 		currentCamera = 2; 
 	}
 	if (currentCamera == 2 && Camera) {
-		SetCameraViewWithBlend(Camera); 
+		VehicleSimple->SetCameraViewWithBlend(Camera); 
 		currentCamera = 1; 
 	}
 

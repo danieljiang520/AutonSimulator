@@ -5,8 +5,10 @@
 #include "CoreMinimal.h"
 #include "WheeledVehicle.h"
 #include "SimpleWheeledVehicleMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 #include "MroverSimPawn.generated.h"
-#include "Kisnet/GameplayStatics.h"
+
 
 class UCameraComponent;
 class USpringArmComponent;
@@ -197,6 +199,10 @@ public:
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* Camera;
 
+	/** Camera component that will be rover viewpoint */
+	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* Camera1;
+	
 	/** SCene component for the In-Car view origin */
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class USceneComponent* InternalCameraBase;
