@@ -201,7 +201,7 @@ public:
 
 	/** Camera component that will be rover viewpoint */
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* Camera1;
+	UCameraComponent* Camera2;
 	
 	/** SCene component for the In-Car view origin */
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))

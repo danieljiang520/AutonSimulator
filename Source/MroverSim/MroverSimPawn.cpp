@@ -81,10 +81,10 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	Camera->FieldOfView = 90.f;
 
 	// Create second camera component
-	Camera1 = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera1"));
-	//Camera1->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
-	Camera1->bUsePawnControlRotation = false;
-	Camera1->FieldOfView = 90.f;
+	Camera2 = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera2"));
+	//Camera2->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
+	Camera2->bUsePawnControlRotation = false;
+	Camera2->FieldOfView = 90.f;
 }
 	void AMroverSimPawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -132,15 +132,19 @@ void AMroverSimPawn::changeCameras() {
 
 	// camera views: 2 => "c" to change to next, "c" to change back 
 	// currentCamera default to 1 (ie. first camera view), change would change it to 2
-	float SmoothBlendTime = 0.75f;
-	if (currentCamera == 1 && Camera1) {
+	//float SmoothBlendTime = 0.75f;
+	float DeltaTime = 0.5f; 
+	if (currentCamera == 1 && Camera2) {
+		Camera2->SetFieldOfView(DeltaTime); 
+
 		//VehicleSimple->SetCameraViewWithBlend(Camera1, SmoothBlendTime); 
 			// SetCameraViewWithBlend isn't a member of AWheeledVehicle 
 				// --> try: bFindCameraComponentWhenViewTarget???
 		currentCamera = 2; 
 	}
 	if (currentCamera == 2 && Camera) {
-		VehicleSimple->SetCameraViewWithBlend(Camera); 
+		//VehicleSimple->SetCameraViewWithBlend(Camera); 
+		Camera->SetFieldOfView(DeltaTime); 
 		currentCamera = 1; 
 	}
 
