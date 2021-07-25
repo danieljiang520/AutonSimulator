@@ -5,8 +5,6 @@
 #include "CoreMinimal.h"
 #include "WheeledVehicle.h"
 #include "SimpleWheeledVehicleMovementComponent.h"
-#include "Kismet/GameplayStatics.h"
-
 #include "MroverSimPawn.generated.h"
 
 
@@ -197,7 +195,7 @@ public:
 
 	/** Camera component that will be our viewpoint */
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* Camera;
+	UCameraComponent* Camera1;
 
 	/** Camera component that will be rover viewpoint */
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
@@ -264,14 +262,17 @@ private:
 	float leftControllerAxis;
 	float rightControllerAxis;
 
-	int currentCamera = 1; 
+	int currentCamera; 
 
 
 public:
 	/** Returns SpringArm subobject **/
 	FORCEINLINE USpringArmComponent* GetSpringArm() const { return SpringArm; }
 	/** Returns Camera subobject **/
-	FORCEINLINE UCameraComponent* GetCamera() const { return Camera; }
+	FORCEINLINE UCameraComponent* GetCamera() const { 
+		if (currentCamera == 1) return Camera1;
+		return Camera2;
+	}
 
 	/** Returns InCarSpeed subobject **/
 	FORCEINLINE UTextRenderComponent* GetInCarSpeed() const { return InCarSpeed; }
