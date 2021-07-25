@@ -13,8 +13,6 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Components/TextRenderComponent.h"
 #include "Materials/Material.h"
-#include "GameFramework/Controller.h"
-#include "Kismet/GameplayStatics.h"
 
 #ifndef HMD_MODULE_INCLUDED
 #define HMD_MODULE_INCLUDED 0
@@ -75,16 +73,16 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	SpringArm->bInheritRoll = false;
 
 	// Create camera component 
-	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera0"));
-	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
-	Camera->bUsePawnControlRotation = false;
-	Camera->FieldOfView = 90.f;
+	Camera1 = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera0"));
+	Camera1->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
+	Camera1->bUsePawnControlRotation = false;
+	Camera1->FieldOfView = 90.f;
 
 	// Create second camera component
 	Camera2 = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera2"));
-	//Camera2->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
-	Camera2->bUsePawnControlRotation = false;
-	Camera2->FieldOfView = 90.f;
+
+
+	currentCamera = 1;
 }
 	void AMroverSimPawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -132,31 +130,23 @@ void AMroverSimPawn::changeCameras() {
 
 	// camera views: 2 => "c" to change to next, "c" to change back 
 	// currentCamera default to 1 (ie. first camera view), change would change it to 2
-	//float SmoothBlendTime = 0.75f;
-	float DeltaTime = 0.5f; 
-	if (currentCamera == 1 && Camera2) {
-		Camera2->SetFieldOfView(DeltaTime); 
 
-		//VehicleSimple->SetCameraViewWithBlend(Camera1, SmoothBlendTime); 
-			// SetCameraViewWithBlend isn't a member of AWheeledVehicle 
-				// --> try: bFindCameraComponentWhenViewTarget???
+	FString TestHUDString;
+	
+	if (currentCamera == 1) {
+		TestHUDString = FString(TEXT("Changing to camera2!"));
 		currentCamera = 2; 
+		Camera1->Deactivate();
+		Camera2->Activate();
 	}
-	if (currentCamera == 2 && Camera) {
-		//VehicleSimple->SetCameraViewWithBlend(Camera); 
-		Camera->SetFieldOfView(DeltaTime); 
+	else if (currentCamera == 2) {
+		TestHUDString = FString(TEXT("Changing to camera1!"));
 		currentCamera = 1; 
+		Camera1->Activate();
+		Camera2->Deactivate();
 	}
-
-	// Change cameras 
-	/*float SmoothBlendTime = 0.75f; 
-	APlayerController* rover = UGamePlayStatics::GetPlayerController(this, 0); 
-	if (InternalCamera && rover->GetViewTarget() == GetCamera()) {
-		rover->SetCameraViewWithBlend(InternalCamera, SmoothBlendTime); 
-	}
-	else if (GetCamera()) {
-		rover->SetCameraViewWithBlend(Camera); 
-	}*/
+	
+	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Blue, *TestHUDString );
 }
 
 void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
@@ -178,8 +168,8 @@ void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
 	VehicleSimple->SetDriveTorque(torque * leftVelocity,BACK_LEFT_WHEEL);
 	VehicleSimple->SetDriveTorque(torque * rightVelocity,BACK_RIGHT_WHEEL);
 
-	FString TheFloatStr = FString::SanitizeFloat(rightAxis);
-	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Red, *TheFloatStr );
+	// FString TheFloatStr = FString::SanitizeFloat(rightAxis);
+	// GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Red, *TheFloatStr );
 
 }
 
@@ -210,7 +200,6 @@ void AMroverSimPawn::Tick(float Delta)
 		}
 	}
 	
-	changeCameras(); 
 
 }
 
