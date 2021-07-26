@@ -25,10 +25,8 @@ If you are still experiencing issues then when you find a solution please docume
 4. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer version of UnrealEngine (~30 GB). This version might be at the end of the selection box. It is very important that you install 4.26+ on mac.
 5. While you are waiting for unreal engine to install, open terminal and locate a folder where you want to store the mrover files. (E.g. cd Documents)
 6. Clone the Simulator Files: git clone https://github.com/umrover/AutonSimulator.git
-7. After you have set up the AutonSimulator folder, type cd AutonSimulator 
-8. Clone the lcm files: git clone https://github.com/lcm-proj/lcm.git
-9. Double check if there are files in the AutonSimulator/lcm folder
-10. In terminal, go to the AutonSimulator folder. Type git remote -v
+7. After you have set up the AutonSimulator folder, type: cd AutonSimulator 
+8. Type: git remote -v
 11. Specify a new remote upstream repository that will be synced with the fork: git remote add upstream https://github.com/umrover/AutonSimulator.git
 12. Verify the new upstream repository you've specified for your fork: git remote -v (you shold see two upstream links)
 13. Fetch the branches and their respective commits from the upstream repository: git fetch upstream
