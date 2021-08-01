@@ -244,7 +244,11 @@ public:
 	/** Update the physics material used by the vehicle mesh */
 	void UpdatePhysicsMaterial();
 
+	/** Changes camera from 3rd perspective to 1st */
 	void changeCameras(); 
+
+	/** Takes screenshot of scene that player wants */
+	void takeScreenshot(); 
 
 	static const FName LookUpBinding;
 	static const FName LookRightBinding;

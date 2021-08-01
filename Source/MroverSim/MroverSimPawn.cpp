@@ -96,6 +96,7 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &AMroverSimPawn::OnHandbrakeReleased);
 
 	PlayerInputComponent->BindAction("ChangeCameras", IE_Pressed, this, &AMroverSimPawn::changeCameras);
+	PlayerInputComponent->BindAction("TakeScreenshot", IE_Pressed, this, &AMroverSimPawn::takeScreenshot);
 }
 
 void AMroverSimPawn::MoveForward(float Val)
@@ -147,6 +148,11 @@ void AMroverSimPawn::changeCameras() {
 	}
 	
 	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Blue, *TestHUDString );
+}
+
+void AMroverSimPawn::takeScreenshot() {
+	
+	HighResShot 2 ; 
 }
 
 void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {
