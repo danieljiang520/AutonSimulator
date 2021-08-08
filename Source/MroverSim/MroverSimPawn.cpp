@@ -82,7 +82,7 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	Camera2 = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera2"));
 
 
-	currentCamera = 1;
+	currentCamera_index = 1;
 }
 	void AMroverSimPawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -95,8 +95,8 @@ AMroverSimPawn::AMroverSimPawn(const class FObjectInitializer& PCIP) :
 	PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &AMroverSimPawn::OnHandbrakePressed);
 	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &AMroverSimPawn::OnHandbrakeReleased);
 
+	// binding key to switch cameras
 	PlayerInputComponent->BindAction("ChangeCameras", IE_Pressed, this, &AMroverSimPawn::changeCameras);
-	PlayerInputComponent->BindAction("TakeScreenshot", IE_Pressed, this, &AMroverSimPawn::takeScreenshot);
 }
 
 void AMroverSimPawn::MoveForward(float Val)
@@ -125,6 +125,27 @@ void AMroverSimPawn::OnHandbrakeReleased()
 	VehicleSimple->SetBrakeTorque(0, BACK_RIGHT_WHEEL);
 }
 
+/** Returns Camera subobject **/
+int GetCameraIndex() const { 
+	return currentCamera_index;
+}
+int GetNextCameraIndex() const {
+	if (GetCameraIndex() == (cameras.size()-1)) { return 0; }
+	return GetCameraIndex() + 1; 
+}
+
+/** Sets Camera subobject **/
+void SetCamera(int camera_index) { 
+	for (size_t i = 0; i < cameras.size(); ++i) {
+		if (i == camera_index) {
+			cameras[i]->Activate(); 
+		}
+		else {
+			cameras[i]->Deactivate(); 
+		}
+	}
+}
+
 void AMroverSimPawn::changeCameras() {
 	// if press "c", this function will be called
 	// to change variables, do in tick()
@@ -132,27 +153,8 @@ void AMroverSimPawn::changeCameras() {
 	// camera views: 2 => "c" to change to next, "c" to change back 
 	// currentCamera default to 1 (ie. first camera view), change would change it to 2
 
-	FString TestHUDString;
-	
-	if (currentCamera == 1) {
-		TestHUDString = FString(TEXT("Changing to camera2!"));
-		currentCamera = 2; 
-		Camera1->Deactivate();
-		Camera2->Activate();
-	}
-	else if (currentCamera == 2) {
-		TestHUDString = FString(TEXT("Changing to camera1!"));
-		currentCamera = 1; 
-		Camera1->Activate();
-		Camera2->Deactivate();
-	}
-	
-	GEngine->AddOnScreenDebugMessage( -1,1.0,FColor::Blue, *TestHUDString );
-}
+	SetCamera(GetNextCameraIndex()); 
 
-void AMroverSimPawn::takeScreenshot() {
-	
-	HighResShot 2 ; 
 }
 
 void AMroverSimPawn::moveChasis(float leftAxis, float rightAxis) {

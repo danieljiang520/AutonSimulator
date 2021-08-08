@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <vector>
 #include "CoreMinimal.h"
 #include "WheeledVehicle.h"
 #include "SimpleWheeledVehicleMovementComponent.h"
@@ -266,17 +267,20 @@ private:
 	float leftControllerAxis;
 	float rightControllerAxis;
 
-	int currentCamera; 
+	int currentCamera_index; 
+
+	std::vector<UCameraComponent*> cameras = {Camera1, Camera2}; 
 
 
 public:
 	/** Returns SpringArm subobject **/
 	FORCEINLINE USpringArmComponent* GetSpringArm() const { return SpringArm; }
 	/** Returns Camera subobject **/
-	FORCEINLINE UCameraComponent* GetCamera() const { 
-		if (currentCamera == 1) return Camera1;
-		return Camera2;
-	}
+	int GetCameraIndex() const;
+	int GetNextCameraIndex() const;
+
+	/** Sets Camera subobject **/
+	void SetCamera(int camera_index);
 
 	/** Returns InCarSpeed subobject **/
 	FORCEINLINE UTextRenderComponent* GetInCarSpeed() const { return InCarSpeed; }
