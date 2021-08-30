@@ -22,7 +22,7 @@ If you are still experiencing issues then when you find a solution please docume
 1. Install XCode (~30 GB) from the AppStore because XCode is used to compile C++ codes in Unreal Engine.
 2. Go to https://www.epicgames.com/store/en-US/download and install Epic Games Launcher (~700 MB)
 3. Open Epic Games Launcher
-4. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer version of UnrealEngine (~30 GB). This version might be at the end of the selection box. It is very important that you install 4.26+ on mac.
+4. On the sidebar, click Unreal Engine. Then, click the Library section on the top menu bar. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer version of UnrealEngine (~30 GB). This version might be at the end of the selection box. It is very important that you install 4.26+ on mac.
 5. While you are waiting for unreal engine to install, open terminal and locate a folder where you want to store the mrover files. (E.g. cd Documents)
 6. Clone the Simulator Files: git clone https://github.com/umrover/AutonSimulator.git
 7. After you have set up the AutonSimulator folder, type: cd AutonSimulator 
