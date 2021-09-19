@@ -18,7 +18,7 @@ $ sudo cp /usr/local/lib/liblcm.so.1 /usr/lib
 
 If you are still experiencing issues then when you find a solution please document them here.
 
-## Mac Set Up (May 24, 2021)
+## Mac Set Up (May 24, 2021) reference: https://mycodecentral.com/installing-unreal-engine-for-mac
 1. Install XCode (~30 GB) from the AppStore because XCode is used to compile C++ codes in Unreal Engine.
 2. Go to https://www.epicgames.com/store/en-US/download and install Epic Games Launcher (~700 MB)
 3. Open Epic Games Launcher
