@@ -26,7 +26,7 @@ Houses 3D simulator to test integration of Auton stack
 24. Click play in Unreal Engine. Click on the gameplay window once to engage keyboard recognition. Use wasd to move the rover. 
 
 ## Windows Set up (Sep 25, 2021) reference: https://www.worldofleveldesign.com/categories/ue4/ue4-download-install-unreal-engine-4.php
-1. Refer to Mac Set up Step 2 to the end.
+1. Refer to Mac Set Up from step 2 to the end.
 
 ## Github troubleshooting
 When you use github and the terminal is displaying:
