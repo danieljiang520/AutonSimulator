@@ -1,28 +1,11 @@
 # AutonSimulator
 Houses 3D simulator to test integration of Auton stack
 
-## Building Unreal Engine 4
-
-`TODO`
-
-## Building LCM
-Only need to do this once per system. Navigate to the lcm submodule
-and follow the build instructions therein before continuing.
-
-Unless the build failed you should be mostly setup. If you find yourself
-facing issues with the lcm library not being found like I did then try this fix
-
-`
-$ sudo cp /usr/local/lib/liblcm.so.1 /usr/lib
-`
-
-If you are still experiencing issues then when you find a solution please document them here.
-
-## Mac Set Up (May 24, 2021) reference: https://mycodecentral.com/installing-unreal-engine-for-mac
+## Mac Set Up (Sep 25, 2021) reference: https://mycodecentral.com/installing-unreal-engine-for-mac
 1. Install XCode (~30 GB) from the AppStore because XCode is used to compile C++ codes in Unreal Engine.
 2. Go to https://www.epicgames.com/store/en-US/download and install Epic Games Launcher (~700 MB)
 3. Open Epic Games Launcher
-4. On the sidebar, click Unreal Engine. Then, click the Library section on the top menu bar. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer version of UnrealEngine (~30 GB). This version might be at the end of the selection box. It is very important that you install 4.26+ on mac.
+4. On the sidebar, click Unreal Engine. Then, click the Library section on the top menu bar. In the Library section, click the add button next to ENGINE VERSIONS. Install 4.26.0 or newer version of UnrealEngine (~30 GB). This version might be at the end of the selection box. 
 5. While you are waiting for unreal engine to install, open terminal and locate a folder where you want to store the mrover files. (E.g. cd Documents)
 6. Clone the Simulator Files: git clone https://github.com/umrover/AutonSimulator.git
 7. After you have set up the AutonSimulator folder, type: cd AutonSimulator 
@@ -38,8 +21,12 @@ If you are still experiencing issues then when you find a solution please docume
 19. Now you should be able to see the game but without the rover
 20. Go to https://drive.google.com/drive/folders/1kQf7xffSPj5jT0UwyLqin40EbcV6uL1i 
 21. Download Complete_Rover.uasset
-22. Open finder and copy that file to AutonSimulator/Content/Vehicle/Rover
-23. Click play in Unreal Engine. Use wasd to move the rover. 
+22. Open finder and move that file to AutonSimulator/Content/Vehicle/Rover
+23. Click Compile in Unreal Engine
+24. Click play in Unreal Engine. Click on the gameplay window once to engage keyboard recognition. Use wasd to move the rover. 
+
+## Windows Set up (Sep 25, 2021) reference: https://www.worldofleveldesign.com/categories/ue4/ue4-download-install-unreal-engine-4.php
+1. Refer to Mac Set up Step 2 to the end.
 
 ## Github troubleshooting
 When you use github and the terminal is displaying:
@@ -55,3 +42,16 @@ Configuring a remote for a fork: https://docs.github.com/en/github/collaborating
 - C = switch cameras
 - F = activate goForward function
 - R = activate goRight function
+
+## Building LCM
+Only need to do this once per system. Navigate to the lcm submodule
+and follow the build instructions therein before continuing.
+
+Unless the build failed you should be mostly setup. If you find yourself
+facing issues with the lcm library not being found like I did then try this fix
+
+`
+$ sudo cp /usr/local/lib/liblcm.so.1 /usr/lib
+`
+
+If you are still experiencing issues then when you find a solution please document them here.
