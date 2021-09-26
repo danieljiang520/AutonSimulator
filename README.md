@@ -17,7 +17,7 @@ Houses 3D simulator to test integration of Auton stack
 15. Merge the changes from the upstream default branch - in this case, upstream/main - into your local default branch: git merge upstream/main
 16. Now go back to Epic Games Launcher and launch unreal engine 4.26.0
 17. Click more at the bottom of the window. Find and open the MroverSim.uproject file. 
-18. If a window saying the project is built with another version of unreal engine, click skip conversion
+18. If a window saying the project is built with another version of unreal engine, click more options and skip conversion
 19. Now you should be able to see the game but without the rover
 20. Go to https://drive.google.com/drive/folders/1kQf7xffSPj5jT0UwyLqin40EbcV6uL1i 
 21. Download Complete_Rover.uasset
