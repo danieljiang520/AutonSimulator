@@ -26,7 +26,8 @@ Houses 3D simulator to test integration of Auton stack
 24. Click play in Unreal Engine. Click on the gameplay window once to engage keyboard recognition. Use wasd to move the rover. 
 
 ## Windows Set up (Sep 25, 2021) reference: https://www.worldofleveldesign.com/categories/ue4/ue4-download-install-unreal-engine-4.php
-1. Refer to Mac Set Up from step 2 to the end.
+1. Install Visual Studio
+2. Refer to Mac Set Up from step 2 to the end.
 
 ## Github troubleshooting
 When you use github and the terminal is displaying:
@@ -36,6 +37,9 @@ where username2 = another github account and username1 is the account you want t
  https://gist.github.com/richchurcher 531b0452d7d5ea983daa314d0876f60a
  
 Configuring a remote for a fork: https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
+
+Checking out to a remote branch: git checkout -t <name of remote>/test
+https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch
 
 ## Controls
 - WASD or arrow keys or external controllers = move the rover
