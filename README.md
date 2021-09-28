@@ -30,15 +30,12 @@ Houses 3D simulator to test integration of Auton stack
 2. Refer to Mac Set Up from step 2 to the end.
 
 ## Github troubleshooting
-When you use github and the terminal is displaying:
+- When you use github and the terminal is displaying:
 "remote: Permission to username1/repo.git denied to username2. fatal: unable to access 'https://github.com/username1/repo.git/': The requested URL returned error: 403", 
-
-where username2 = another github account and username1 is the account you want to use to push/pull, you need to change github accounts. Use the following link to help you: 
+- where username2 = another github account and username1 is the account you want to use to push/pull, you need to change github accounts. Use the following link to help you: 
  https://gist.github.com/richchurcher 531b0452d7d5ea983daa314d0876f60a
- 
-Configuring a remote for a fork: https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
-
-Checking out to a remote branch: git checkout -t <name of remote>/test
+- Configuring a remote for a fork: https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
+- Checking out to a remote branch: git checkout -t <name of remote>/test
 https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch
 
 ## Controls
