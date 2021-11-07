@@ -19,7 +19,7 @@ Houses 3D simulator to test integration of Auton stack
 17. Click more at the bottom of the window. Find and open the MroverSim.uproject file. 
 18. If a window saying the project is built with another version of unreal engine, click more options and skip conversion
 19. Now you should be able to see the game but without the rover
-20. Go to https://drive.google.com/drive/folders/1kQf7xffSPj5jT0UwyLqin40EbcV6uL1i 
+20. Go to https://drive.google.com/file/d/1mwYig0TFc-aNQFcowvJtupE5AZcrNtk-/view?usp=sharing
 21. Download Complete_Rover.uasset
 22. Open finder and move that file to AutonSimulator/Content/Vehicle/Rover
 23. Click Compile in Unreal Engine
