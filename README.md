@@ -1,7 +1,7 @@
 # AutonSimulator
 Houses 3D simulator to test integration of Auton stack
 
-## Mac Set Up (Sep 25, 2021) reference: https://mycodecentral.com/installing-unreal-engine-for-mac
+## Mac Set Up (Sep 25, 2021) 
 1. Install XCode (~30 GB) from the AppStore because XCode is used to compile C++ codes in Unreal Engine.
 2. Go to https://www.epicgames.com/store/en-US/download and install Epic Games Launcher (~700 MB)
 3. Open Epic Games Launcher
