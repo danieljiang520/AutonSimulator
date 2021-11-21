@@ -28,6 +28,7 @@ Houses 3D simulator to test integration of Auton stack
 ## Windows Set up (Sep 25, 2021) reference: https://www.worldofleveldesign.com/categories/ue4/ue4-download-install-unreal-engine-4.php
 1. Install Visual Studio
 2. Refer to Mac Set Up from step 2 to the end.
+3. Make sure you install .NET Framework SDK 4.6 or above in the Visual Studio Installer
 
 ## Github troubleshooting
 - When you use github and the terminal is displaying:
